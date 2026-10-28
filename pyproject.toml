@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compra-genetica"
+version = "1.0.0"
+description = "Shopping-route optimization (product prices + fuel) with a genetic algorithm"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Juan I. Almonte Fernández" }]
+dependencies = ["numpy>=1.26", "pandas>=2.1", "openpyxl>=3.1"]
+
+[project.optional-dependencies]
+notebook = ["matplotlib>=3.8", "networkx>=3.2", "joblib>=1.3", "jupyter>=1.0", "nbclient>=0.10", "nbformat>=5.9"]
+dev = ["pytest>=8.0", "networkx>=3.2"]
+
+[project.scripts]
+compra-genetica = "compra_genetica.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
